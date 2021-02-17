@@ -128,7 +128,13 @@ ggplot(data = plastic_waste,
 
 E4.  Convert your side-by-side box plots from the previous task to [violin plots](http://ggplot2.tidyverse.org/reference/geom_violin.html). What do the violin plots reveal that box plots do not? What features are apparent in the box plots but not in the violin plots?
 
-
+```{r}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = continent, 
+                     y = plastic_waste_per_cap)) +
+  geom_violin()
+```
+Answer: The(box plot) is more clear and more summarized than the (violin plots)
 **Remember:** We use `geom_point()` to make scatterplots.
 
 

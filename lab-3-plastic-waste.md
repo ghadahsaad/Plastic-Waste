@@ -3,9 +3,9 @@ Lab 3 - Plastic Waste
 DSC 200 - Data Science I
 2021-02-17
 
-Student Name:
+Student Name:ghadah saad
 
-Student ID:
+Student ID:2201002590
 
 ``` r
 library(tidyverse)
@@ -73,9 +73,11 @@ fill = continent)) +
 geom_histogram(alpha = 0.7)
 ```
 
-**NOTE:** From this point onwards the plots and the output of the code
-are not displayed in the lab instructions, but you can and should write
-the code and view the results yourself.
+Answer:Africa is the continent with the most dense, South America is the
+country with the most plastic waste per. **NOTE:** From this point
+onwards the plots and the output of the code are not displayed in the
+lab instructions, but you can and should write the code and view the
+results yourself.
 
 Another way of visualizing numerical data is using density plots.
 
@@ -119,16 +121,25 @@ E2. Recreate the density plots above using a different (lower) alpha
 level that works better for displaying the density curves for all
 continents.
 
+``` r
+ggplot(data = plastic_waste,
+mapping = aes(x = plastic_waste_per_cap,
+color = continent,
+fill = continent)) +
+geom_density(alpha = 0.4)
+```
+
 E3. Describe why we defined the `color` and `fill` of the curves by
 mapping aesthetics of the plot but we defined the `alpha` level as a
 characteristic of the plotting geom.
 
-Answer here:
-
-*Now is a good time to knit your document and commit and push your
-changes to GitHub with an appropriate commit message. Make sure to
-commit and push all changed files so that your Git pane is cleared up
-afterwards.*
+Answer here: because here we represent a set of data (continents), not
+just color control, as the colors here belong to the continents and also
+the filling is related to the continents But the Alpha it’s talking
+about all Graphic (gemo\_density) *Now is a good time to knit your
+document and commit and push your changes to GitHub with an appropriate
+commit message. Make sure to commit and push all changed files so that
+your Git pane is cleared up afterwards.*
 
 And yet another way to visualize this relationship is using side-by-side
 box plots.
@@ -145,7 +156,15 @@ E4. Convert your side-by-side box plots from the previous task to
 What do the violin plots reveal that box plots do not? What features are
 apparent in the box plots but not in the violin plots?
 
-**Remember:** We use `geom_point()` to make scatterplots.
+``` r
+ggplot(data = plastic_waste, 
+       mapping = aes(x = continent, 
+                     y = plastic_waste_per_cap)) +
+  geom_violin()
+```
+
+Answer: The(box plot) is more clear and more summarized than the (violin
+plots) **Remember:** We use `geom_point()` to make scatterplots.
 
 E5. Visualize the relationship between plastic waste per capita and
 mismanaged plastic waste per capita using a scatterplot. Describe the
@@ -180,7 +199,7 @@ use](https://ggplot2.tidyverse.org/reference/index.html#section-geoms).
 E8. Recreate the following plot, and interpret what you see in context
 of the data.
 
-![](lab-3-plastic-waste_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](lab-3-plastic-waste_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 Knit, *commit (with an appropriate message), and push your changes to
 GitHub with an appropriate commit message. Make sure to commit and push
